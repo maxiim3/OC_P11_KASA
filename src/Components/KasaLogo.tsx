@@ -1,6 +1,6 @@
 import React from "react"
 
-export const Logo = () => {
+export const KasaLogo = () => {
 	return (
 		<svg
 			viewBox="0 0 211 68"

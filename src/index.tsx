@@ -1,24 +1,10 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import App from "./App"
-import "./Style/index.scss"
-import {Header} from "./Components/Header"
-import {Footer} from "./Components/Footer"
+import "./Sass/index.scss"
+import {Router} from "./Routes"
 
-ReactDOM.createRoot(document.getElementById("header") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
-		<Header />
-	</React.StrictMode>
-)
-
-ReactDOM.createRoot(document.getElementById("main") as HTMLElement).render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>
-)
-
-ReactDOM.createRoot(document.getElementById("footer") as HTMLElement).render(
-	<React.StrictMode>
-		<Footer />
+		<Router />
 	</React.StrictMode>
 )

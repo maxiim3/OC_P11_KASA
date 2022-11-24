@@ -1,5 +1,17 @@
+import React from "react"
+import {KasaLogo} from "./KasaLogo"
+
 export function Footer() {
 	return (
-		<footer><p>Kasa footer</p></footer>
+		<footer className={"footer"}>
+			<span
+				aria-describedby={"Kasa Logo"}
+				aria-hidden={"true"}
+				className="logo"
+				tabIndex={-1}>
+				<KasaLogo />
+			</span>
+			<p>© 2020 Kasa. All rights reserved</p>
+		</footer>
 	)
 }

@@ -1,10 +1,10 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom"
-import {Home} from "./Home"
-import {Logement} from "./Logement"
-import {About} from "./About"
-import {NotFound} from "./NotFound"
+import {Home} from "./Pages/Home/Home"
+import {Logement} from "./Pages/Logement/Logement"
+import {About} from "./Pages/About/About"
+import {NotFound} from "./Pages/NotFound/NotFound"
 import React from "react"
-import MainLayout from "../Layouts/MainLayout"
+import MainLayout from "./Layouts/MainLayout"
 
 export function Router() {
 	return (
@@ -13,6 +13,7 @@ export function Router() {
 				<Routes>
 					{PATHS.map(path => (
 						<Route
+							key={`routes${path.label}`}
 							path={path.path}
 							element={path.component}
 						/>
@@ -39,7 +40,7 @@ export const PATHS = [
 		inMenu: true,
 	},
 	{
-		path: "/logement",
+		path: "/logement/:logementId",
 		title: "Logement",
 		label: "logement",
 		component: <Logement />,
@@ -47,8 +48,8 @@ export const PATHS = [
 	},
 	{
 		path: "*",
-		title: "404",
-		label: "404",
+		title: "NotFound",
+		label: "NotFound",
 		component: <NotFound />,
 		inMenu: false,
 	},

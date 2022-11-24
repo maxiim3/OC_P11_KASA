@@ -1,6 +1,6 @@
 import React from "react"
 
-export const LogoMinify = () => {
+export const KasaLogoMinify = () => {
 	return (
 		<svg
 			viewBox="0 0 47 54"

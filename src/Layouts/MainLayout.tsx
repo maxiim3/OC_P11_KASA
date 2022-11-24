@@ -1,6 +1,6 @@
 import React from "react"
-import {Header} from "./Header"
-import {Footer} from "./Footer"
+import {Header} from "../Components/Header"
+import {Footer} from "../Components/Footer"
 import ContextProvider from "../Context/ContextProvider"
 
 const MainLayout = (props: {children: React.ReactNode}) => {
