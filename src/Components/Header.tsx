@@ -1,8 +1,8 @@
 import {NavLink} from "react-router-dom"
-import {PATHS} from "../Routes"
 
 import React from "react"
 import {KasaLogo} from "./KasaLogo"
+import {PATHS_NAVIGATION} from "../Routes/Constants"
 
 export function Header() {
 	return (
@@ -16,16 +16,13 @@ export function Header() {
 					<KasaLogo />
 				</span>
 				<ul className={"nav__items"}>
-					{PATHS.map(path => {
-						if (!path.inMenu) return
-						return (
-							<li
-								className={"mav__items__item"}
-								key={`link-${path.label}`}>
-								<NavLink to={path.path}>{path.title}</NavLink>
-							</li>
-						)
-					})}
+					{PATHS_NAVIGATION.map(path => (
+						<li
+							className={"mav__items__item"}
+							key={`link-${path.label}`}>
+							<NavLink to={path.path}>{path.title}</NavLink>
+						</li>
+					))}
 				</ul>
 			</nav>
 		</header>
