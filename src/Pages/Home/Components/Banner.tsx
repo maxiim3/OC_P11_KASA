@@ -1,4 +1,5 @@
 import React from "react"
+import {ResponsiveLineBreak} from "./ResponsiveLineBreak"
 
 export const Banner = () => {
 	return (
@@ -6,8 +7,9 @@ export const Banner = () => {
 			<section className="bg" />
 			<p>
 				Chez vous,
-				<span>partout et ailleurs</span>
+				<ResponsiveLineBreak text={"partout et ailleurs"} />
 			</p>
 		</section>
 	)
 }
+

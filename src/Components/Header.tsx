@@ -1,10 +1,34 @@
 import {NavLink} from "react-router-dom"
 
-import React from "react"
+import React, {MutableRefObject, useEffect, useRef} from "react"
 import {KasaLogo} from "./KasaLogo"
-import {PATHS_NAVIGATION} from "../Routes/Constants"
+import {GET_PATHS} from "../Routes/Constants"
 
 export function Header() {
+	// const navRef = useRef() as MutableRefObject<HTMLUListElement>
+	//
+	// useEffect(() => {
+	// 	const observer = new MutationObserver(mutations => {
+	// 		const homeLinkIndex = 1
+	// 		const aboutLinkIndex = 3
+	//
+	// 		const $homeLink: HTMLAnchorElement = mutations[homeLinkIndex]
+	// 			.target as HTMLAnchorElement
+	// 		const $aboutLink: HTMLAnchorElement = mutations[aboutLinkIndex]
+	// 			.target as HTMLAnchorElement
+	// 		const aboutClassList = [...$aboutLink.classList] as string[]
+	// 		const isOnAboutPage = !!aboutClassList.find(i => i === "active")
+	//
+	// 		const setActive = (active: HTMLAnchorElement, inactive: HTMLAnchorElement) => {
+	// 			active.classList.add("underline")
+	// 			inactive.classList.remove("underline")
+	// 		}
+	// 		isOnAboutPage ? setActive($aboutLink, $homeLink) : setActive($homeLink, $aboutLink)
+	// 	})
+	//
+	// 	observer.observe(navRef.current, {attributes: true, childList: true, subtree: true})
+	// }, [])
+
 	return (
 		<header className={"header"}>
 			<nav className={"nav"}>
@@ -15,14 +39,19 @@ export function Header() {
 					tabIndex={-1}>
 					<KasaLogo />
 				</span>
-				<ul className={"nav__items"}>
-					{PATHS_NAVIGATION.map(path => (
-						<li
-							className={"mav__items__item"}
-							key={`link-${path.label}`}>
-							<NavLink to={path.path}>{path.title}</NavLink>
-						</li>
-					))}
+				<ul
+					className={"nav__items"}
+					/*ref={navRef}*/>
+					<li
+						className={"mav__items__item"}
+						key={`link-${GET_PATHS.HOME.label}`}>
+						<NavLink to={GET_PATHS.HOME.path}>{GET_PATHS.HOME.title}</NavLink>
+					</li>
+					<li
+						className={"mav__items__item"}
+						key={`link-${GET_PATHS.ABOUT.label}`}>
+						<NavLink to={GET_PATHS.ABOUT.path}>{GET_PATHS.ABOUT.title}</NavLink>
+					</li>
 				</ul>
 			</nav>
 		</header>

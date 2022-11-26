@@ -24,4 +24,3 @@ export const GET_PATHS = {
 								component: <Logement />,
 							}),
 }
-export const PATHS_NAVIGATION = [GET_PATHS.HOME, GET_PATHS.ABOUT]
