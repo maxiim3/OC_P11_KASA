@@ -1,5 +1,5 @@
 import React from "react"
-import {ResponsiveLineBreak} from "./ResponsiveLineBreak"
+import {ResponsiveLineBreak} from "../../../Components/ResponsiveLineBreak"
 
 export const Banner = () => {
 	return (

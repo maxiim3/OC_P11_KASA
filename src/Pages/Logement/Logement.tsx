@@ -1,13 +1,12 @@
 import React from "react"
-import {useSelectedLogement} from "../../Hooks/UseSelectedLogement"
+import {Banner} from "./Components/Banner"
+import {Container} from "./Components/Container"
 
 export function Logement() {
-	const {logement} = useSelectedLogement()
-
 	return (
-		<>
-			<h1>Logement</h1>
-			<h2>{logement?.title}</h2>
-		</>
+		<main className="main main-about">
+			<Banner />
+			<Container />
+		</main>
 	)
 }

@@ -35,6 +35,7 @@ body {
 }
 
 .main-home,
+.main-about,
 .header {
 	margin-top: 16px;
 	margin-inline: $marges-sm;
@@ -309,7 +310,182 @@ a {
 }
 
 //endregion
+//region Main-About
+.main-about {
+	@media screen and (min-width: $bp-lg) {
+		margin-top: 63px;
+	}
 
+	//region Banner
+	.banner {
+		position: relative;
+		overflow: hidden;
+		height: 223px;
+		border-radius: $radius;
+
+		@media screen and (min-width: $bp-lg) {
+			display: grid;
+			//height: 223px;
+			border-radius: $radius--desktop;
+			place-content: center;
+		}
+
+		.bg {
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+			background-color: #000;
+			background-image: url("/src/assets/about-banner-mobile.png");
+			background-position: {
+				x: center;
+				y: 49%;
+			}
+			background-clip: border-box;
+			background-origin: border-box;
+			background-size: cover;
+
+			@media screen and (min-width: $bp-sm) {
+				background-image: url("/src/assets/about-banner-desktop.png");
+				background-position: {
+					x: center;
+					y: 43.5%;
+				}
+			}
+
+			&:before {
+				position: absolute;
+				z-index: 2;
+				top: 0;
+				left: 0;
+				display: block;
+				width: 100%;
+				height: 100%;
+				content: " ";
+				opacity: 30%;
+				background: #000; // todo regler le filtre
+				//mix-blend-mode: darken;
+			}
+		}
+
+		p {
+			font-size: txt.$xxl;
+			font-weight: txt.$bold;
+			line-height: 24px;
+			position: absolute;
+			z-index: 5;
+			top: 31px;
+			left: 16px;
+			color: clr.$secondary;
+			@media screen and (min-width: $bp-lg) {
+				font-size: txt.$xxl--desktop;
+				position: relative;
+				top: 0;
+				left: 0;
+			}
+		}
+	}
+
+	//endregion
+
+	//region Container
+	.container {
+		display: flex;
+		align-items: center;
+		flex-flow: wrap;
+		flex-direction: column;
+		justify-content: start;
+		min-height: 60vh;
+		margin-block: 22px;
+		gap: 20px;
+
+		@media screen and (min-width: $bp-sm) {
+		}
+		@media screen and (min-width: $bp-lg) {
+			gap: 30px;
+			padding-inline: 108px;
+		}
+
+		.collapse {
+			position: relative;
+			overflow: hidden;
+			width: 100%;
+			//height: 255px;
+			//border-radius: $radius;
+
+			&__header {
+				position: relative;
+				z-index: 2;
+				display: flex;
+				align-items: center;
+				flex-flow: nowrap;
+				flex-direction: row;
+				justify-content: space-between;
+				border-radius: 5px;
+				background-color: clr.$primary;
+				padding-inline: 11.5px 5px;
+				padding-block: 6px;
+				@media screen and (min-width: $bp-lg) {
+					padding-inline: 12px 7px;
+					padding-block: 8px;
+					}
+				&:hover{
+					cursor: pointer;
+					}
+
+				h2 {
+					font-size: txt.$md;
+					font-weight: txt.$bold;
+					color: clr.$secondary;
+					@media screen and (min-width: $bp-lg) {
+						font-size: txt.$lg--desktop;
+					}
+				}
+
+				#arrow {
+					transition: rotate 250ms 150ms ease;
+					@media screen and (min-width: $bp-lg) {
+						width: 24px;
+						height: 24px;
+						}
+				}
+			}
+
+			&__content {
+				z-index: 0;
+				min-height: 146px;
+				border-radius: 5px;
+				background-color: clr.$gray-lighter;
+				padding-block: 23px;
+				padding-inline: 12px 6px;
+				@media screen and (min-width: $bp-lg) {
+					padding-inline: 17px 27px;
+					padding-block: 36px 0 ;
+					height: fit-content;
+					}
+				p {
+					font-size: txt.$sm;
+					font-weight: txt.$regular;
+					line-height: 17px;
+					letter-spacing: 0.2px;
+					color: clr.$primary;
+
+					@media screen and (min-width: $bp-lg) {
+						font-size: txt.$lg--desktop;
+						line-height: 34px;
+					}
+				}
+			}
+		}
+	}
+
+	//endregion
+}
+
+//endregion
 //region Main-Error-404
 .main-404 {
 	display: flex;
@@ -350,8 +526,8 @@ a {
 	}
 
 	@media screen and (min-width: $bp-lg) {
-		gap: 150px;
 		padding-top: 150px;
+		gap: 150px;
 		.message {
 			gap: 50px;
 		}

@@ -1,6 +1,6 @@
 import React, {useEffect} from "react"
 import {NavLink} from "react-router-dom"
-import {ResponsiveLineBreak} from "../Home/Components/ResponsiveLineBreak"
+import {ResponsiveLineBreak} from "../../Components/ResponsiveLineBreak"
 
 export function PageNotFound() {
 	useEffect(() => {

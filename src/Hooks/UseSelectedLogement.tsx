@@ -3,7 +3,7 @@ import {useLogements} from "./useLogements"
 import {useMemo} from "react"
 
 export function useSelectedLogement() {
-	const {logementId} = useParams()
+	const {logementId} = useParams()!
 	const {logements} = useLogements()!
 
 	const logement = useMemo(() => {

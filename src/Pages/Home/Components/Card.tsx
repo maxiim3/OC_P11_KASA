@@ -1,7 +1,6 @@
 import React from "react"
 import {ILogementType} from "../../../Interface/ILogement"
-import {redirect, useNavigate} from "react-router-dom"
-import {PATHS} from "../../../Routes/Routes"
+import {useNavigate} from "react-router-dom"
 
 export const Card = (props: {data: ILogementType}) => {
 	const {title, id} = props.data
