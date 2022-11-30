@@ -1,13 +1,13 @@
 import React from "react"
 import {LogementsContext} from "./LogementsContext"
-import {useDataSource} from "../Hooks/useDataSource"
+import {useFetchAPI} from "../Hooks/useFetchAPI"
 
 /**
  * # Context Provider
  * @description Component that Provides Logement Context to all its children
  * @requires LogementsContext
- * @requires useDataSource
- * @see useDataSource
+ * @requires useFetchAPI
+ * @see useFetchAPI
  * @see LogementsContext
  * @param {{children: React.ReactNode}} props
  * @return {JSX.Element}
@@ -15,7 +15,7 @@ import {useDataSource} from "../Hooks/useDataSource"
  */
 const ContextProvider = (props: {children: React.ReactNode}) => {
 	return (
-		<LogementsContext.Provider value={useDataSource()}>
+		<LogementsContext.Provider value={useFetchAPI()}>
 			{props.children}
 		</LogementsContext.Provider>
 	)

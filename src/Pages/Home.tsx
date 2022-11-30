@@ -17,11 +17,11 @@ export function Home() {
 				</p>
 			</Banner>
 			<ContainerLayout>
-				{logements.map(log => {
+				{logements.map(data => {
 					return (
 						<Card
-							key={`card-${log.id}`}
-							data={log}
+							key={`card-${data.id}`}
+							data={data}
 						/>
 					)
 				})}

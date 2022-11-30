@@ -2,13 +2,13 @@ import {useEffect, useState} from "react"
 import {ILogement} from "../Interfaces/ILogement"
 
 /**
- * # useDataSource Custom Hook
+ * # useFetchAPI Custom Hook
  * @description Custom Hook to fetch data from API
  * @requires ILogement
  * @see ILogement
  * @return {{logements: ILogement[]}}
  */
-export function useDataSource() {
+export function useFetchAPI() {
 	const [logements, setLogements] = useState<ILogement[]>([])
 	useEffect(() => {
 		fetch("/logements.json")

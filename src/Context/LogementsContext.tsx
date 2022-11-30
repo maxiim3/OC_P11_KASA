@@ -1,13 +1,13 @@
 import {createContext} from "react"
-import {useDataSource} from "../Hooks/useDataSource"
+import {useFetchAPI} from "../Hooks/useFetchAPI"
 
 /**
  * # Create Context
  * @description Create Logement Context
- * @requires useDataSource
- * @see useDataSource
- * @type {React.Context<ReturnType<typeof useDataSource> | undefined>}
+ * @requires useFetchAPI
+ * @see useFetchAPI
+ * @type {React.Context<ReturnType<typeof useFetchAPI> | undefined>}
  */
-export const LogementsContext = createContext<ReturnType<typeof useDataSource> | undefined>(
+export const LogementsContext = createContext<ReturnType<typeof useFetchAPI> | undefined>(
 	undefined
 )

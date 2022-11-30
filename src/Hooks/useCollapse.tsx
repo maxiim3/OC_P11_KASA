@@ -19,8 +19,7 @@ export function useCollapse({arrowIconRef, contentRef}: IUseCollapse) {
 			arrowIconRef.current.style.rotate = "180deg"
 			contentRef.current.style.display = "block"
 			contentRef.current.style.translate = " 0 -6px"
-		}
-		else {
+		} else {
 			arrowIconRef.current.style.rotate = "0deg"
 			contentRef.current.style.display = "none"
 			contentRef.current.style.translate = " 0 -100%"
@@ -28,5 +27,6 @@ export function useCollapse({arrowIconRef, contentRef}: IUseCollapse) {
 	}, [isOpen])
 
 	const toggleIsOpen = () => setIsOpen(b => !b)
+
 	return {toggleIsOpen}
 }

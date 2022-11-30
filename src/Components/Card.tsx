@@ -4,14 +4,17 @@ import {useNavigate} from "react-router-dom"
 // todo JSDOC
 
 export const Card = (props: {data: ILogement}) => {
-	const {title, id} = props.data
+	const {title, id, pictures} = props.data
 	const navigate = useNavigate()
 
 	return (
 		<article
 			className="container__card"
 			onClick={() => navigate(`/logement/${id}`)}>
-			<section className="bg"></section>
+			<img
+				src={pictures[0]}
+				alt={title}
+			/>
 			<section className="title">
 				<p>{title}</p>
 			</section>
