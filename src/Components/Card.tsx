@@ -1,8 +1,9 @@
 import React from "react"
-import {ILogementType} from "../../../Interface/ILogement"
+import {ILogement} from "../Interfaces/ILogement"
 import {useNavigate} from "react-router-dom"
+// todo JSDOC
 
-export const Card = (props: {data: ILogementType}) => {
+export const Card = (props: {data: ILogement}) => {
 	const {title, id} = props.data
 	const navigate = useNavigate()
 

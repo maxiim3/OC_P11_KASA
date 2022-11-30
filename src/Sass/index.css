@@ -19,6 +19,7 @@ body {
 
 .main-home,
 .main-about,
+.main-logement,
 .header {
   margin-top: 16px;
   margin-inline: 20px;
@@ -26,6 +27,7 @@ body {
 @media screen and (min-width: 768px) {
   .main-home,
 .main-about,
+.main-logement,
 .header {
     margin-top: 40px;
     margin-inline: 50px;
@@ -34,6 +36,7 @@ body {
 @media screen and (min-width: 1040px) {
   .main-home,
 .main-about,
+.main-logement,
 .header {
     margin-inline: 100px;
   }
@@ -411,9 +414,9 @@ a:visited {
 }
 @media screen and (min-width: 1040px) {
   .main-about .container .collapse__content {
+    height: fit-content;
     padding-inline: 17px 27px;
     padding-block: 36px 0;
-    height: fit-content;
   }
 }
 .main-about .container .collapse__content p {
@@ -427,6 +430,267 @@ a:visited {
   .main-about .container .collapse__content p {
     font-size: 24px;
     line-height: 34px;
+  }
+}
+
+@media screen and (min-width: 1040px) {
+  .main-logement {
+    margin-top: 63px;
+  }
+}
+.main-logement .banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 255px;
+  border-radius: 10px;
+}
+@media screen and (min-width: 1040px) {
+  .main-logement .banner {
+    display: grid;
+    height: 445px;
+    border-radius: 25px;
+    place-content: center;
+  }
+}
+.main-logement .banner .carousel {
+  width: 100%;
+  height: 100%;
+}
+.main-logement .container {
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  flex-direction: column;
+  justify-content: start;
+  min-height: 60vh;
+  margin-block: 15px;
+}
+@media screen and (min-width: 1040px) {
+  .main-logement .container {
+    align-items: start;
+    flex-direction: column;
+    margin-block: 30px;
+  }
+}
+.main-logement .container .header {
+  margin: 0;
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  .main-logement .container .header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+.main-logement .container .header__title {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+}
+.main-logement .container .header h2,
+.main-logement .container .header h3 {
+  font-weight: 400;
+  text-align: left;
+}
+.main-logement .container .header h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+@media screen and (min-width: 768px) {
+  .main-logement .container .header h2 {
+    font-size: 36px;
+  }
+}
+.main-logement .container .header h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 768px) {
+  .main-logement .container .header h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+.main-logement .container .header .tags {
+  display: flex;
+  align-items: center;
+  flex-flow: wrap;
+  flex-direction: row;
+  gap: 10px;
+}
+.main-logement .container .header .tag {
+  font-size: 10px;
+  font-weight: 400;
+  display: grid;
+  min-width: 84px;
+  min-height: 18px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  background: rgb(255, 96, 96);
+  padding-block: 3px;
+  padding-inline: 30px;
+  place-content: center;
+}
+@media screen and (min-width: 768px) {
+  .main-logement .container .header .tag {
+    font-size: 14px;
+    min-width: 115px;
+    min-height: 25px;
+    border-radius: 10px;
+  }
+}
+.main-logement .container .header__aside {
+  display: flex;
+  align-items: center;
+  flex-flow: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-block: 10px;
+}
+@media screen and (min-width: 768px) {
+  .main-logement .container .header__aside {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.main-logement .container .header__aside .owner {
+  display: flex;
+  align-items: center;
+  flex-flow: nowrap;
+  flex-direction: row;
+  gap: 11px;
+}
+.main-logement .container .header__aside .owner p {
+  font-size: 12px;
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .main-logement .container .header__aside .owner p {
+    font-size: 18px;
+  }
+}
+.main-logement .container .header__aside .owner p span {
+  display: block;
+  text-align: right;
+}
+.main-logement .container .header__aside .owner .picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+}
+@media screen and (min-width: 768px) {
+  .main-logement .container .header__aside .owner .picture {
+    width: 64px;
+    height: 64px;
+  }
+}
+.main-logement .container .header__aside .ratings {
+  order: -1;
+}
+@media screen and (min-width: 768px) {
+  .main-logement .container .header__aside .ratings {
+    order: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .main-logement .container .header__aside .ratings .star {
+    width: 30px;
+    height: 30px;
+  }
+}
+.main-logement .container .header__aside .ratings .full {
+  fill: rgb(255, 96, 96);
+}
+.main-logement .container .header__aside .ratings .empty {
+  fill: rgb(227, 227, 227);
+}
+.main-logement .container .content {
+  width: 100%;
+}
+@media screen and (min-width: 1040px) {
+  .main-logement .container .content {
+    display: flex;
+    flex-flow: nowrap;
+    gap: 76px;
+  }
+}
+.main-logement .container .collapse {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.main-logement .container .collapse__header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-flow: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 5px;
+  background-color: rgb(255, 96, 96);
+  padding-inline: 11.5px 5px;
+  padding-block: 6px;
+}
+@media screen and (min-width: 1040px) {
+  .main-logement .container .collapse__header {
+    border-radius: 10px;
+    padding-inline: 12px 7px;
+    padding-block: 8px;
+  }
+}
+.main-logement .container .collapse__header:hover {
+  cursor: pointer;
+}
+.main-logement .container .collapse__header h2 {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+}
+@media screen and (min-width: 1040px) {
+  .main-logement .container .collapse__header h2 {
+    font-size: 18px;
+  }
+}
+.main-logement .container .collapse__header #arrow {
+  transition: rotate 250ms 150ms ease;
+}
+@media screen and (min-width: 1040px) {
+  .main-logement .container .collapse__header #arrow {
+    width: 24px;
+    height: 24px;
+  }
+}
+.main-logement .container .collapse__content {
+  z-index: 0;
+  min-height: 146px;
+  border-radius: 5px;
+  background-color: rgb(247, 247, 247);
+  padding-block: 23px;
+  padding-inline: 12px 6px;
+}
+@media screen and (min-width: 1040px) {
+  .main-logement .container .collapse__content {
+    min-height: 250px;
+    padding-inline: 17px 27px;
+    padding-block: 36px 0;
+  }
+}
+.main-logement .container .collapse__content p {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.2px;
+  color: rgb(255, 96, 96);
+}
+@media screen and (min-width: 1040px) {
+  .main-logement .container .collapse__content p {
+    font-size: 18px;
+    line-height: 25px;
   }
 }
 

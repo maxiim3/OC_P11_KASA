@@ -1,5 +1,5 @@
 import React from "react"
-
+// todo JSDOC
 export const KasaLogoMinify = () => {
 	return (
 		<svg

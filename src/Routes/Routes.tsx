@@ -1,13 +1,23 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom"
-import {PageNotFound} from "../Pages/NotFound/PageNotFound"
+import {PageNotFound} from "../Pages/PageNotFound"
 import React from "react"
-import MainLayout from "../Layouts/MainLayout"
-import {GET_PATHS} from "./Constants"
+import {GET_PATHS} from "../Constants/GET_PATHS"
+import PageLayout from "../Layouts/PageLayout"
 
+/**
+ * # Router
+ * @description Router - redirect routes:
+ * @requires GET_PATHS
+ * @requires PageNotFound
+ * @requires BrowserRouter
+ * @requires Route
+ * @requires Routes
+ * @constructor
+ */
 export function Router() {
 	return (
 		<BrowserRouter>
-			<MainLayout>
+			<PageLayout>
 				<Routes>
 					<Route
 						key={`routes${GET_PATHS.HOME.label}`}
@@ -30,8 +40,7 @@ export function Router() {
 						element={<PageNotFound />}
 					/>
 				</Routes>
-			</MainLayout>
+			</PageLayout>
 		</BrowserRouter>
 	)
 }
-

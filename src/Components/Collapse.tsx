@@ -1,6 +1,7 @@
 import React, {MutableRefObject, useRef} from "react"
-import {useCollapse} from "../Hooks/UseCollapse"
-
+import {useCollapse} from "../Hooks/useCollapse"
+import {useRandomKey} from "../Hooks/useRandomKey"
+// todo JSDOC
 export function Collapse(props: {title: string; txt: string[]}) {
 	const arrowIconRef = useRef() as MutableRefObject<SVGSVGElement>
 	const contentRef = useRef() as MutableRefObject<HTMLDivElement>
@@ -31,7 +32,7 @@ export function Collapse(props: {title: string; txt: string[]}) {
 				ref={contentRef}
 				className="collapse__content">
 				{props.txt.map(t => (
-					<p>{t}</p>
+					<p key={useRandomKey()}>{t}</p>
 				))}
 			</section>
 		</article>

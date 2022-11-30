@@ -1,6 +1,6 @@
 import React from "react"
 import {KasaLogo} from "./KasaLogo"
-
+// todo JSDOC
 export function Footer() {
 	return (
 		<footer className={"footer"}>

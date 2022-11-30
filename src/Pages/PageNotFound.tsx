@@ -1,6 +1,7 @@
 import React, {useEffect} from "react"
 import {NavLink} from "react-router-dom"
-import {ResponsiveLineBreak} from "../../Components/ResponsiveLineBreak"
+import {ResponsiveLineBreak} from "../Components/ResponsiveLineBreak"
+import {ContainerLayout} from "../Layouts/ContainerLayout"
 
 export function PageNotFound() {
 	useEffect(() => {
@@ -12,13 +13,13 @@ export function PageNotFound() {
 
 	return (
 		<main className={"main main-404"}>
-			<section className={"message"}>
+			<ContainerLayout>
 				<h1>404</h1>
 				<h2>
 					Oups! La page que
 					<ResponsiveLineBreak text={"vous demandez n'existe pas."} />
 				</h2>
-			</section>
+			</ContainerLayout>
 			<section className={"link"}>
 				<NavLink to={"/"}>Retourner sur la page d’accueil</NavLink>
 			</section>

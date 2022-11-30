@@ -2,8 +2,8 @@ import {NavLink} from "react-router-dom"
 
 import React, {MutableRefObject, useEffect, useRef} from "react"
 import {KasaLogo} from "./KasaLogo"
-import {GET_PATHS} from "../Routes/Constants"
-
+import {GET_PATHS} from "../Constants/GET_PATHS"
+// todo JSDOC
 export function Header() {
 	// const navRef = useRef() as MutableRefObject<HTMLUListElement>
 	//
@@ -46,6 +46,7 @@ export function Header() {
 						className={"mav__items__item"}
 						key={`link-${GET_PATHS.HOME.label}`}>
 						<NavLink to={GET_PATHS.HOME.path}>{GET_PATHS.HOME.title}</NavLink>
+					{/*	todo on Navigate : reset scroll position*/}
 					</li>
 					<li
 						className={"mav__items__item"}
