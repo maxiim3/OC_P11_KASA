@@ -3,6 +3,7 @@ import {Home} from "../Pages/Home"
 import {About} from "../Pages/About"
 import {Logement} from "../Pages/Logement"
 import React from "react"
+import {PageNotFound} from "../Pages/PageNotFound"
 
 /**
  * # GET_PATHS
@@ -14,21 +15,27 @@ import React from "react"
  */
 export const GET_PATHS = {
 	HOME: new PathModel({
-							path: "/",
-							title: "Accueil",
-							label: "home",
-							component: <Home />,
-						}),
+		path: "/",
+		title: "Accueil",
+		label: "home",
+		component: <Home />,
+	}),
 	ABOUT: new PathModel({
-							 path: "/about",
-							 title: "A Propos",
-							 label: "about",
-							 component: <About />,
-						 }),
+		path: "/about",
+		title: "A Propos",
+		label: "about",
+		component: <About />,
+	}),
 	LOGEMENT: new PathModel({
-								path: "/logement/:logementId",
-								title: "Logement",
-								label: "logement",
-								component: <Logement />,
-							}),
+		path: "/logement/:logementId",
+		title: "Logement",
+		label: "logement",
+		component: <Logement />,
+	}),
+	PAGE_NOT_FOUND: new PathModel({
+		path: "/page-introuvable",
+		title: "Page Introuvable",
+		label: "404",
+		component: <PageNotFound />,
+	}),
 }

@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom"
+import {BrowserRouter, Navigate, redirect, Route, Routes} from "react-router-dom"
 import {PageNotFound} from "../Pages/PageNotFound"
 import React from "react"
 import {GET_PATHS} from "../Constants/GET_PATHS"
@@ -35,12 +35,24 @@ export function Router() {
 						element={GET_PATHS.LOGEMENT.component}
 					/>
 					<Route
-						key={`routes-404`}
-						path={"*"}
+						key={`routes${GET_PATHS.PAGE_NOT_FOUND.label}`}
+						path={GET_PATHS.PAGE_NOT_FOUND.path}
 						element={<PageNotFound />}
+					/>
+					<Route
+						key={`routes-redirect-404`}
+						path={"*"}
+						element={
+							<Navigate
+								to={GET_PATHS.PAGE_NOT_FOUND.path}
+								replace={false}
+							/>
+						}
 					/>
 				</Routes>
 			</PageLayout>
 		</BrowserRouter>
 	)
 }
+
+//todo Write Test for redirection on wrong Logement url path
