@@ -431,24 +431,46 @@ a:visited {
     margin-top: 63px;
   }
 }
-.main-logement .banner {
+.main-logement .carousel {
   position: relative;
   overflow: hidden;
   width: 100%;
   height: 255px;
   border-radius: 10px;
 }
-@media screen and (min-width: 1040px) {
-  .main-logement .banner {
-    display: grid;
+@media screen and (min-width: 768px) {
+  .main-logement .carousel {
     height: 445px;
     border-radius: 25px;
-    place-content: center;
   }
 }
-.main-logement .banner .carousel {
-  width: 100%;
+.main-logement .carousel__container {
   height: 100%;
+}
+.main-logement .carousel__container__picture {
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: 50% 55%;
+}
+.main-logement .carousel__arrow {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  fill: red;
+}
+.main-logement .carousel__arrow:hover {
+  cursor: pointer;
+}
+.main-logement .carousel__arrow--left {
+  left: 0;
+  rotate: 90deg;
+}
+.main-logement .carousel__arrow--right {
+  right: 0;
+  rotate: -90deg;
 }
 .main-logement .container {
   display: flex;

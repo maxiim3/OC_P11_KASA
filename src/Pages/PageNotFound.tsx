@@ -1,15 +1,11 @@
-import React, {useEffect} from "react"
+import React from "react"
 import {NavLink} from "react-router-dom"
 import {ResponsiveLineBreak} from "../Components/ResponsiveLineBreak"
 import {ContainerLayout} from "../Layouts/ContainerLayout"
+import {useUnderlineHomeLink} from "../Hooks/UseUnderlineHomeLink"
 
 export function PageNotFound() {
-	useEffect(() => {
-		const el: HTMLAnchorElement = document.querySelector(
-			".nav a:first-of-type"
-		) as HTMLAnchorElement
-		el.classList.add("active")
-	})
+	useUnderlineHomeLink()
 
 	return (
 		<main className={"main main-404"}>

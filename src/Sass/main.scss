@@ -485,22 +485,62 @@ a {
 	}
 
 	//region Carousel
-	.banner {
+	.carousel {
 		position: relative;
 		overflow: hidden;
 		width: 100%;
 		height: 255px;
 		border-radius: $radius;
-		@media screen and (min-width: $bp-lg) {
-			display: grid;
+		@media screen and (min-width: $bp-md) {
 			height: 445px;
 			border-radius: $radius--desktop;
-			place-content: center;
 		}
 
-		.carousel {
-			width: 100%;
+		&__container {
+			//display: flex;
+			//flex-flow: row nowrap;
 			height: 100%;
+			//width: 100%;
+
+			&__picture {
+				//width: 100%;
+				height: 100%;
+				border-radius: $radius;
+				object-fit: cover;
+				object-position: 50% 55%;
+
+				&[data-state="prev"] {
+				}
+
+				&[data-state="current"] {
+				}
+
+				&[data-state="next"] {
+				}
+			}
+		}
+
+		&__arrow {
+			position: absolute;
+			z-index: 5;
+			top: 50%;
+			width: 40px;
+			height: 40px;
+			fill: red;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&--left {
+				left: 0;
+				rotate: 90deg;
+			}
+
+			&--right {
+				right: 0;
+				rotate: -90deg;
+			}
 		}
 	}
 
