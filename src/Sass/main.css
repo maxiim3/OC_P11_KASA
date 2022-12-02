@@ -41,9 +41,25 @@ body {
     margin-inline: 100px;
   }
 }
+@media screen and (min-width: 1280px) {
+  .main-home,
+.main-about,
+.main-logement,
+.header {
+    max-width: 1440px;
+    padding-inline: 100px;
+    margin-inline: auto;
+  }
+}
 
 a {
   text-decoration: underline;
+  text-underline-offset: clamp(1px, 0.5vw, 4px);
+}
+@media screen and (min-width: 768px) {
+  a {
+    text-underline-offset: 4px;
+  }
 }
 a:visited {
   color: rgb(255, 96, 96);
@@ -52,7 +68,7 @@ a:visited {
 .responsive-line-break {
   display: block;
 }
-@media screen and (min-width: 1040px) {
+@media screen and (min-width: 768px) {
   .responsive-line-break {
     display: inline;
   }
@@ -73,7 +89,7 @@ a:visited {
   }
 }
 .header .logo {
-  width: 145px;
+  width: clamp(100px, 2.3vw, 160px);
 }
 @media screen and (min-width: 768px) {
   .header .logo {
@@ -84,7 +100,7 @@ a:visited {
   fill: rgb(255, 96, 96);
 }
 .header a {
-  font-size: 12px;
+  font-size: clamp(7px, 3.2vw, 12px);
   font-weight: 500;
   text-decoration: none;
   text-transform: uppercase;
@@ -122,7 +138,7 @@ a:visited {
 }
 @media screen and (min-width: 768px) {
   .footer p {
-    font-size: 24px;
+    font-size: clamp(16px, 2.4vw, 24px);
   }
 }
 .footer .logo {
@@ -143,7 +159,7 @@ a:visited {
   height: 111px;
   border-radius: 10px;
 }
-@media screen and (min-width: 1040px) {
+@media screen and (min-width: 768px) {
   .main-home .banner {
     display: grid;
     height: 223px;
@@ -195,9 +211,9 @@ a:visited {
   left: 16px;
   color: rgb(255, 255, 255);
 }
-@media screen and (min-width: 1040px) {
+@media screen and (min-width: 768px) {
   .main-home .banner p {
-    font-size: 48px;
+    font-size: clamp(24px, 3.3vw, 48px);
     position: relative;
     top: 0;
     left: 0;
@@ -235,12 +251,13 @@ a:visited {
   overflow: hidden;
   width: 100%;
   height: 255px;
+  transition: all 150ms ease-in-out;
   border-radius: 10px;
 }
 @media screen and (min-width: 640px) {
   .main-home .container__card {
-    width: max(35vw, 255px);
-    height: max(35vw, 255px);
+    width: clamp(255px, 33vw, 340px);
+    height: clamp(255px, 33vw, 340px);
   }
 }
 @media screen and (min-width: 1040px) {
@@ -250,7 +267,10 @@ a:visited {
   }
 }
 .main-home .container__card img {
+  width: 100%;
   height: 100%;
+  transition: all 150ms 100ms ease-in-out;
+  object-fit: cover;
 }
 .main-home .container__card .title {
   font-size: 18px;
@@ -258,11 +278,23 @@ a:visited {
   position: absolute;
   bottom: 15px;
   left: 20px;
-  max-width: 24ch;
+  max-width: 22ch;
+  margin-right: 1ch;
+  transition: all 150ms 100ms ease-in-out;
   color: rgb(255, 255, 255);
 }
 .main-home .container__card:hover {
   cursor: pointer;
+  border-radius: 15px;
+  scale: 102%;
+}
+.main-home .container__card:hover img {
+  scale: 110%;
+  filter: grayscale(90%);
+}
+.main-home .container__card:hover .title {
+  font-weight: 500;
+  scale: 102%;
 }
 
 @media screen and (min-width: 1040px) {
@@ -317,24 +349,6 @@ a:visited {
   opacity: 30%;
   background: #000;
 }
-.main-about .banner p {
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 24px;
-  position: absolute;
-  z-index: 5;
-  top: 31px;
-  left: 16px;
-  color: rgb(255, 255, 255);
-}
-@media screen and (min-width: 1040px) {
-  .main-about .banner p {
-    font-size: 48px;
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-}
 .main-about .container {
   display: flex;
   align-items: center;
@@ -383,19 +397,15 @@ a:visited {
   font-weight: 500;
   color: rgb(255, 255, 255);
 }
-@media screen and (min-width: 1040px) {
+@media screen and (min-width: 768px) {
   .main-about .container .collapse__header h2 {
-    font-size: 24px;
+    font-size: clamp(13px, 1.9vw, 24px);
   }
 }
 .main-about .container .collapse__header #arrow {
+  width: clamp(18px, 2vw, 28px);
+  height: clamp(18px, 2vw, 28px);
   transition: rotate 250ms 150ms ease;
-}
-@media screen and (min-width: 1040px) {
-  .main-about .container .collapse__header #arrow {
-    width: 24px;
-    height: 24px;
-  }
 }
 .main-about .container .collapse__content {
   z-index: 0;
@@ -413,16 +423,22 @@ a:visited {
   }
 }
 .main-about .container .collapse__content p {
-  font-size: 12px;
+  font-size: clamp(7px, 3.2vw, 12px);
   font-weight: 400;
-  line-height: 17px;
+  line-height: clamp(14px, 3.5vw, 18px);
   letter-spacing: 0.2px;
   color: rgb(255, 96, 96);
 }
-@media screen and (min-width: 1040px) {
+@media screen and (min-width: 640px) {
   .main-about .container .collapse__content p {
-    font-size: 24px;
-    line-height: 34px;
+    font-size: clamp(12px, 2.2vw, 16px);
+    line-height: clamp(16px, 3.3vw, 24px);
+  }
+}
+@media screen and (min-width: 768px) {
+  .main-about .container .collapse__content p {
+    font-size: clamp(16px, 1.9vw, 24px);
+    line-height: clamp(15px, 3vw, 34px);
   }
 }
 
@@ -448,29 +464,41 @@ a:visited {
   height: 100%;
 }
 .main-logement .carousel__container__picture {
+  width: 100%;
   height: 100%;
   border-radius: 10px;
   object-fit: cover;
   object-position: 50% 55%;
 }
+.main-logement .carousel__container__picture::selection {
+  user-select: none;
+}
 .main-logement .carousel__arrow {
   position: absolute;
   z-index: 5;
-  top: 50%;
-  width: 40px;
-  height: 40px;
-  fill: red;
+  top: 40%;
+  width: var(--clamp);
+  height: var(--clamp);
+  transition: all 125ms 30ms ease-in-out, border-radius 150ms 30ms ease-in-out;
+  border-radius: 15px;
+  --sizeMax: 120px;
+  --sizeMin: 24px;
+  --clamp: clamp(var(--sizeMin), 8.5vw, var(--sizeMax));
 }
 .main-logement .carousel__arrow:hover {
   cursor: pointer;
+  background-color: rgba(245, 245, 245, 0.2);
+  scale: 1.1;
+}
+.main-logement .carousel__arrow:active {
+  border-radius: 45%;
+  scale: 0.9;
 }
 .main-logement .carousel__arrow--left {
-  left: 0;
-  rotate: 90deg;
+  left: 10px;
 }
 .main-logement .carousel__arrow--right {
-  right: 0;
-  rotate: -90deg;
+  right: 10px;
 }
 .main-logement .container {
   display: flex;
@@ -479,7 +507,8 @@ a:visited {
   flex-direction: column;
   justify-content: start;
   min-height: 60vh;
-  margin-block: 15px;
+  margin-block: 15px 5px;
+  gap: 10px;
 }
 @media screen and (min-width: 1040px) {
   .main-logement .container {
@@ -489,10 +518,11 @@ a:visited {
   }
 }
 .main-logement .container .header {
+  width: 100%;
   margin: 0;
   padding: 0;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 640px) {
   .main-logement .container .header {
     display: flex;
     justify-content: space-between;
@@ -510,22 +540,21 @@ a:visited {
   text-align: left;
 }
 .main-logement .container .header h2 {
-  font-size: 18px;
+  font-size: clamp(12px, 5vw, 18px);
   margin-bottom: 5px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 640px) {
   .main-logement .container .header h2 {
-    font-size: 36px;
+    font-size: clamp(18px, 2.5vw, 36px);
   }
 }
 .main-logement .container .header h3 {
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: clamp(9px, 4vw, 14px);
+  margin-bottom: clamp(10px, 5vw, 20px);
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 640px) {
   .main-logement .container .header h3 {
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: clamp(14px, 2.5vw, 18px);
   }
 }
 .main-logement .container .header .tags {
@@ -536,26 +565,21 @@ a:visited {
   gap: 10px;
 }
 .main-logement .container .header .tag {
-  font-size: 10px;
-  font-weight: 400;
   display: grid;
-  min-width: 84px;
-  min-height: 18px;
-  text-align: center;
+  width: fit-content;
+  height: clamp(18px, 4vw, 25px);
   color: rgb(255, 255, 255);
-  border-radius: 5px;
+  border-radius: clamp(5px, 1.4vw, 10px);
   background: rgb(255, 96, 96);
-  padding-block: 3px;
-  padding-inline: 30px;
   place-content: center;
 }
-@media screen and (min-width: 768px) {
-  .main-logement .container .header .tag {
-    font-size: 14px;
-    min-width: 115px;
-    min-height: 25px;
-    border-radius: 10px;
-  }
+.main-logement .container .header .tag p {
+  font-size: clamp(6px, 2.5vw, 14px);
+  font-weight: 400;
+  width: clamp(100%, 20vw, 115px);
+  text-align: center;
+  padding-block: 3px;
+  padding-inline: 30px;
 }
 .main-logement .container .header__aside {
   display: flex;
@@ -565,9 +589,9 @@ a:visited {
   justify-content: space-between;
   margin-block: 10px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 640px) {
   .main-logement .container .header__aside {
-    flex-direction: column;
+    flex-flow: column wrap;
     gap: 20px;
   }
 }
@@ -576,45 +600,40 @@ a:visited {
   align-items: center;
   flex-flow: nowrap;
   flex-direction: row;
-  gap: 11px;
+  gap: 4px;
 }
 .main-logement .container .header__aside .owner p {
-  font-size: 12px;
+  font-size: clamp(8px, 3vw, 12px);
   font-weight: 400;
-}
-@media screen and (min-width: 768px) {
-  .main-logement .container .header__aside .owner p {
-    font-size: 18px;
-  }
 }
 .main-logement .container .header__aside .owner p span {
   display: block;
   text-align: right;
 }
 .main-logement .container .header__aside .owner .picture {
-  width: 32px;
-  height: 32px;
+  width: clamp(28px, 8.9vw, 64px);
+  height: clamp(28px, 8.9vw, 64px);
   border-radius: 100%;
 }
-@media screen and (min-width: 768px) {
-  .main-logement .container .header__aside .owner .picture {
-    width: 64px;
-    height: 64px;
+@media screen and (min-width: 640px) {
+  .main-logement .container .header__aside .owner {
+    gap: 11px;
+  }
+  .main-logement .container .header__aside .owner p {
+    font-size: clamp(12px, 2.3vw, 18px);
   }
 }
 .main-logement .container .header__aside .ratings {
   order: -1;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 640px) {
   .main-logement .container .header__aside .ratings {
     order: 0;
   }
 }
-@media screen and (min-width: 768px) {
-  .main-logement .container .header__aside .ratings .star {
-    width: 30px;
-    height: 30px;
-  }
+.main-logement .container .header__aside .ratings .star {
+  width: clamp(18px, 2vw, 30px);
+  height: clamp(18px, 2vw, 30px);
 }
 .main-logement .container .header__aside .ratings .full {
   fill: rgb(255, 96, 96);
@@ -725,21 +744,20 @@ a:visited {
   gap: 11px;
 }
 .main-404 h1 {
-  font-size: 96px;
+  font-size: clamp(96px, 20vw, 288px);
   font-weight: 700;
-  width: fit-content;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 .main-404 h2 {
-  font-size: 14px;
+  font-size: clamp(18px, 2.5vw, 36px);
   font-weight: 500;
   line-height: 25px;
   text-align: center;
 }
 .main-404 a {
-  font-size: 12px;
+  font-size: clamp(12px, 1.7vw, 18px);
   font-weight: 500;
   text-align: center;
 }
@@ -747,18 +765,6 @@ a:visited {
   .main-404 {
     padding-top: 150px;
     gap: 150px;
-  }
-  .main-404 .message {
-    gap: 50px;
-  }
-  .main-404 h1 {
-    font-size: 288px;
-  }
-  .main-404 h2 {
-    font-size: 36px;
-  }
-  .main-404 a {
-    font-size: 18px;
   }
 }
 

@@ -47,10 +47,19 @@ body {
 	@media screen and (min-width: $bp-lg) {
 		margin-inline: $marges--desktop-x--md;
 	}
+	@media screen and (min-width: $bp-xl) {
+		max-width: 1440px;
+		padding-inline: $marges--desktop-x--md;
+		margin-inline: auto;
+	}
 }
 
 a {
 	text-decoration: underline;
+	text-underline-offset: clamp(1px, 0.5vw, 4px);
+	@media screen and (min-width: $bp-md) {
+		text-underline-offset: 4px;
+	}
 
 	&:visited {
 		color: clr.$primary;
@@ -60,7 +69,7 @@ a {
 //region Component
 .responsive-line-break {
 	display: block;
-	@media screen and (min-width: $bp-lg) {
+	@media screen and (min-width: $bp-md) {
 		display: inline;
 	}
 }
@@ -84,7 +93,7 @@ a {
 	}
 
 	.logo {
-		width: 145px;
+		width: clamp(100px, 2.3vw, 160px);
 		@media screen and (min-width: $bp-md) {
 			width: 210px;
 		}
@@ -95,7 +104,7 @@ a {
 	}
 
 	a {
-		font-size: txt.$sm;
+		font-size: txt.$sm-clamp;
 		font-weight: txt.$bold;
 		text-decoration: none;
 		text-transform: uppercase;
@@ -135,7 +144,7 @@ a {
 		font-weight: txt.$bold;
 		color: clr.$secondary;
 		@media screen and (min-width: $bp-md) {
-			font-size: txt.$lg--desktop;
+			font-size: txt.$lg--clamp;
 		}
 	}
 
@@ -163,7 +172,7 @@ a {
 		height: 111px;
 		border-radius: $radius;
 
-		@media screen and (min-width: $bp-lg) {
+		@media screen and (min-width: $bp-md) {
 			display: grid;
 			height: 223px;
 			border-radius: $radius--desktop;
@@ -220,8 +229,8 @@ a {
 			top: 31px;
 			left: 16px;
 			color: clr.$secondary;
-			@media screen and (min-width: $bp-lg) {
-				font-size: txt.$xxl--desktop;
+			@media screen and (min-width: $bp-md) {
+				font-size: txt.$xxl--clamp-desktop;
 				position: relative;
 				top: 0;
 				left: 0;
@@ -263,10 +272,12 @@ a {
 			overflow: hidden;
 			width: 100%;
 			height: 255px;
+			transition: all 150ms ease-in-out;
 			border-radius: $radius;
 
 			@media screen and (min-width: $bp-sm) {
-				$card--desktop: max(35vw, 255px);
+				$card--desktop: clamp(255px, 33vw, 340px);
+				//$card--desktop: max(35vw, 255px);
 				width: $card--desktop;
 				height: $card--desktop;
 			}
@@ -277,7 +288,10 @@ a {
 			}
 
 			img {
+				width: 100%;
 				height: 100%;
+				transition: all 150ms 100ms ease-in-out;
+				object-fit: cover;
 			}
 
 			.title {
@@ -286,12 +300,26 @@ a {
 				position: absolute;
 				bottom: 15px;
 				left: 20px;
-				max-width: 24ch;
+				max-width: 22ch;
+				margin-right: 1ch;
+				transition: all 150ms 100ms ease-in-out;
 				color: clr.$secondary;
 			}
 
 			&:hover {
 				cursor: pointer;
+				border-radius: 15px;
+				scale: 102%;
+
+				img {
+					scale: 110%;
+					filter: grayscale(90%);
+				}
+
+				.title {
+					font-weight: txt.$bold;
+					scale: 102%;
+				}
 			}
 		}
 	}
@@ -315,7 +343,6 @@ a {
 
 		@media screen and (min-width: $bp-lg) {
 			display: grid;
-			//height: 223px;
 			border-radius: $radius--desktop;
 			place-content: center;
 		}
@@ -360,23 +387,6 @@ a {
 				//mix-blend-mode: darken;
 			}
 		}
-
-		p {
-			font-size: txt.$xxl;
-			font-weight: txt.$bold;
-			line-height: 24px;
-			position: absolute;
-			z-index: 5;
-			top: 31px;
-			left: 16px;
-			color: clr.$secondary;
-			@media screen and (min-width: $bp-lg) {
-				font-size: txt.$xxl--desktop;
-				position: relative;
-				top: 0;
-				left: 0;
-			}
-		}
 	}
 
 	//endregion
@@ -403,8 +413,6 @@ a {
 			position: relative;
 			overflow: hidden;
 			width: 100%;
-			//height: 255px;
-			//border-radius: $radius;
 
 			&__header {
 				position: relative;
@@ -431,17 +439,16 @@ a {
 					font-size: txt.$md;
 					font-weight: txt.$bold;
 					color: clr.$secondary;
-					@media screen and (min-width: $bp-lg) {
-						font-size: txt.$lg--desktop;
+					@media screen and (min-width: $bp-md) {
+						font-size: clamp(13px, 1.9vw, 24px);
 					}
 				}
 
 				#arrow {
+					$size: clamp(18px, 2vw, 28px);
+					width: $size;
+					height: $size;
 					transition: rotate 250ms 150ms ease;
-					@media screen and (min-width: $bp-lg) {
-						width: 24px;
-						height: 24px;
-					}
 				}
 			}
 
@@ -459,15 +466,18 @@ a {
 				}
 
 				p {
-					font-size: txt.$sm;
+					font-size: txt.$sm-clamp;
 					font-weight: txt.$regular;
-					line-height: 17px;
+					line-height: clamp(14px, 3.5vw, 18px);
 					letter-spacing: 0.2px;
 					color: clr.$primary;
-
-					@media screen and (min-width: $bp-lg) {
-						font-size: txt.$lg--desktop;
-						line-height: 34px;
+					@media screen and (min-width: $bp-sm) {
+						font-size: clamp(12px, 2.2vw, 16px);
+						line-height: clamp(16px, 3.3vw, 24px);
+					}
+					@media screen and (min-width: $bp-md) {
+						font-size: clamp(16px, 1.9vw, 24px);
+						line-height: clamp(15px, 3vw, 34px);
 					}
 				}
 			}
@@ -497,13 +507,10 @@ a {
 		}
 
 		&__container {
-			//display: flex;
-			//flex-flow: row nowrap;
-			height: 100%;
-			//width: 100%;
+			height: 100%; //width: 100%;
 
 			&__picture {
-				//width: 100%;
+				width: 100%;
 				height: 100%;
 				border-radius: $radius;
 				object-fit: cover;
@@ -517,29 +524,42 @@ a {
 
 				&[data-state="next"] {
 				}
+
+				&::selection {
+					user-select: none;
+				}
 			}
 		}
 
 		&__arrow {
 			position: absolute;
 			z-index: 5;
-			top: 50%;
-			width: 40px;
-			height: 40px;
-			fill: red;
+			top: 40%;
+			width: var(--clamp);
+			height: var(--clamp);
+			transition: all 125ms 30ms ease-in-out, border-radius 150ms 30ms ease-in-out;
+			border-radius: 15px;
+			--sizeMax: 120px;
+			--sizeMin: 24px;
+			--clamp: clamp(var(--sizeMin), 8.5vw, var(--sizeMax));
 
 			&:hover {
 				cursor: pointer;
+				background-color: rgb(245 245 245 / 0.2);
+				scale: 1.1;
+			}
+
+			&:active {
+				border-radius: 45%;
+				scale: 0.9;
 			}
 
 			&--left {
-				left: 0;
-				rotate: 90deg;
+				left: 10px;
 			}
 
 			&--right {
-				right: 0;
-				rotate: -90deg;
+				right: 10px;
 			}
 		}
 	}
@@ -554,7 +574,9 @@ a {
 		flex-direction: column;
 		justify-content: start;
 		min-height: 60vh;
-		margin-block: 15px;
+		margin-block: 15px 5px;
+		gap: 10px;
+
 		@media screen and (min-width: $bp-lg) {
 			align-items: start;
 			flex-direction: column;
@@ -562,9 +584,10 @@ a {
 		}
 
 		.header {
+			width: 100%;
 			margin: 0;
 			padding: 0;
-			@media screen and (min-width: $bp-md) {
+			@media screen and (min-width: $bp-sm) {
 				display: flex;
 				justify-content: space-between;
 				width: 100%;
@@ -583,19 +606,18 @@ a {
 			}
 
 			h2 {
-				font-size: txt.$xl;
+				font-size: clamp(12px, 5vw, 18px);
 				margin-bottom: 5px;
-				@media screen and (min-width: $bp-md) {
-					font-size: txt.$xl--desktop;
+				@media screen and (min-width: $bp-sm) {
+					font-size: clamp(18px, 2.5vw, 36px);
 				}
 			}
 
 			h3 {
-				font-size: txt.$lg;
-				margin-bottom: 10px;
-				@media screen and (min-width: $bp-md) {
-					font-size: txt.$md--desktop;
-					margin-bottom: 20px;
+				font-size: clamp(9px, 4vw, 14px);
+				margin-bottom: clamp(10px, 5vw, 20px);
+				@media screen and (min-width: $bp-sm) {
+					font-size: clamp(14px, 2.5vw, 18px);
 				}
 			}
 
@@ -608,23 +630,21 @@ a {
 			}
 
 			.tag {
-				font-size: txt.$xs;
-				font-weight: txt.$regular;
 				display: grid;
-				min-width: 84px;
-				min-height: 18px;
-				text-align: center;
+				width: fit-content;
+				height: clamp(18px, 4vw, 25px);
 				color: clr.$secondary;
-				border-radius: 5px;
+				border-radius: clamp(5px, 1.4vw, 10px);
 				background: clr.$primary;
-				padding-block: 3px;
-				padding-inline: 30px;
 				place-content: center;
-				@media screen and (min-width: $bp-md) {
-					font-size: txt.$sm--desktop;
-					min-width: 115px;
-					min-height: 25px;
-					border-radius: 10px;
+
+				p {
+					font-size: clamp(6px, 2.5vw, 14px);
+					font-weight: txt.$regular;
+					width: clamp(100%, 20vw, 115px);
+					text-align: center;
+					padding-block: 3px;
+					padding-inline: 30px;
 				}
 			}
 
@@ -635,8 +655,8 @@ a {
 				flex-direction: row;
 				justify-content: space-between;
 				margin-block: 10px;
-				@media screen and (min-width: $bp-md) {
-					flex-direction: column;
+				@media screen and (min-width: $bp-sm) {
+					flex-flow: column wrap;
 					gap: 20px;
 				}
 
@@ -645,14 +665,11 @@ a {
 					align-items: center;
 					flex-flow: nowrap;
 					flex-direction: row;
-					gap: 11px;
+					gap: 4px;
 
 					p {
-						font-size: txt.$sm;
+						font-size: clamp(8px, 3vw, 12px);
 						font-weight: txt.$regular;
-						@media screen and (min-width: $bp-md) {
-							font-size: txt.$md--desktop;
-						}
 
 						span {
 							display: block;
@@ -661,29 +678,30 @@ a {
 					}
 
 					.picture {
-						$dimension: 32px;
+						$dimension: clamp(28px, 8.9vw, 64px);
 						width: $dimension;
 						height: $dimension;
 						border-radius: 100%;
-						@media screen and (min-width: $bp-md) {
-							$dimension: 64px;
-							width: $dimension;
-							height: $dimension;
+					}
+
+					@media screen and (min-width: $bp-sm) {
+						gap: 11px;
+						p {
+							font-size: clamp(12px, 2.3vw, 18px);
 						}
 					}
 				}
 
 				.ratings {
 					order: -1;
-					@media screen and (min-width: $bp-md) {
+					@media screen and (min-width: $bp-sm) {
 						order: 0;
 					}
 
 					.star {
-						@media screen and (min-width: $bp-md) {
-							width: 30px;
-							height: 30px;
-						}
+						$star: clamp(18px, 2vw, 30px);
+						width: $star;
+						height: $star;
 					}
 
 					.full {
@@ -805,23 +823,22 @@ a {
 	}
 
 	h1 {
-		font-size: txt.$huge;
+		font-size: clamp(96px, 20vw, 288px);
 		font-weight: txt.$bolder;
-		width: fit-content;
 		margin: 0;
 		padding: 0;
 		text-align: center;
 	}
 
 	h2 {
-		font-size: txt.$lg;
+		font-size: clamp(18px, 2.5vw, 36px);
 		font-weight: txt.$bold;
 		line-height: 25px;
 		text-align: center;
 	}
 
 	a {
-		font-size: txt.$sm;
+		font-size: clamp(12px, 1.7vw, 18px);
 		font-weight: txt.$bold;
 		text-align: center;
 	}
@@ -829,20 +846,6 @@ a {
 	@media screen and (min-width: $bp-lg) {
 		padding-top: 150px;
 		gap: 150px;
-		.message {
-			gap: 50px;
-		}
-		h1 {
-			font-size: txt.$huge--desktop;
-		}
-
-		h2 {
-			font-size: txt.$xl--desktop;
-		}
-
-		a {
-			font-size: txt.$md--desktop;
-		}
 	}
 }
 

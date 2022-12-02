@@ -5,6 +5,7 @@ $bolder: 700;
 
 $xs: 10px;
 $sm: 12px;
+$sm-clamp: clamp(7px, 3.2vw, 12px);
 $md: 13px;
 $lg: 14px;
 $xl: 18px;
@@ -14,6 +15,9 @@ $huge: 96px;
 $sm--desktop: 14px;
 $md--desktop: 18px;
 $lg--desktop: 24px;
+$lg--clamp: clamp(16px, 2.4vw, 24px);
 $xl--desktop: 36px;
 $xxl--desktop: 48px;
+$xxl--clamp-desktop: clamp(24px,3.3vw, 48px);
+
 $huge--desktop: 288px;
