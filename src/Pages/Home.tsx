@@ -19,10 +19,6 @@ export function Home() {
 				</p>
 			</Banner>
 			<ContainerLayout>
-				{/*		<Card
-				 key={`card-123`}
-				 data={MOCK_FAKE_DATA}
-				 />*/}
 				{logements.map(data => {
 					return (
 						<Card

@@ -138,9 +138,9 @@ a:visited {
 @media screen and (min-width: 768px) {
   .header a {
     font-size: 24px;
-    text-transform: none;
-    letter-spacing: 0.5px;
     font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: none;
   }
 }
 
@@ -285,11 +285,22 @@ a:visited {
 }
 .main-home .container__card {
   position: relative;
+  z-index: 1;
   overflow: hidden;
   width: 100%;
   height: 255px;
   transition: all 150ms ease-in-out;
   border-radius: 10px;
+}
+.main-home .container__card:after {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, 50%, rgba(0, 0, 0, 0.4) 100%);
 }
 @media screen and (min-width: 640px) {
   .main-home .container__card {
@@ -304,6 +315,7 @@ a:visited {
   }
 }
 .main-home .container__card img {
+  z-index: 2;
   width: 100%;
   height: 100%;
   transition: all 150ms 100ms ease-in-out;
@@ -313,6 +325,7 @@ a:visited {
   font-size: 18px;
   line-height: 26px;
   position: absolute;
+  z-index: 4;
   bottom: 15px;
   left: 20px;
   max-width: 22ch;
@@ -642,8 +655,8 @@ a:visited {
 }
 @media screen and (min-width: 1040px) {
   .main-logement .container .header__aside {
-    margin-block: 0;
     justify-content: start;
+    margin-block: 0;
     gap: 13px;
   }
 }
@@ -655,7 +668,6 @@ a:visited {
   gap: 10px;
 }
 .main-logement .container .header__aside .owner p {
-  margin-block: 2px;
   font-size: clamp(8px, 3.1vw, 12px);
   font-weight: 400;
   display: flex;
@@ -663,6 +675,7 @@ a:visited {
   flex-flow: nowrap;
   flex-direction: column;
   justify-content: space-between;
+  margin-block: 2px;
 }
 @media screen and (min-width: 1040px) {
   .main-logement .container .header__aside .owner p {

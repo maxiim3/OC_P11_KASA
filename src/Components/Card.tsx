@@ -11,6 +11,7 @@ export const Card = (props: {data: ILogement}) => {
 		<article
 			className="container__card"
 			onClick={() => navigate(`/logement/${id}`)}>
+			<div className="bg" />
 			<img
 				src={pictures[0]}
 				alt={title}
