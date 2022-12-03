@@ -17,6 +17,12 @@ body {
   background: rgb(255, 255, 255);
 }
 
+.header,
+.main,
+.footer {
+  animation: loadComponent 350ms ease-out both;
+}
+
 .main-home,
 .main-about,
 .main-logement,
@@ -115,6 +121,14 @@ a:visited {
   }
 }
 
+@keyframes loadComponent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .footer {
   display: flex;
   align-items: center;

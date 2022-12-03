@@ -1,8 +1,10 @@
 import React from "react"
-import {NavLink} from "react-router-dom"
+import {Navigate, NavLink} from "react-router-dom"
 import {ResponsiveLineBreak} from "../Components/ResponsiveLineBreak"
 import {ContainerLayout} from "../Layouts/ContainerLayout"
 import {useUnderlineHomeLink} from "../Hooks/UseUnderlineHomeLink"
+import {GET_PATHS} from "../Constants/GET_PATHS"
+import {useSelectedLogement} from "../Hooks/useSelectedLogement"
 
 export function PageNotFound() {
 	useUnderlineHomeLink()
