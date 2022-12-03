@@ -1,11 +1,8 @@
-import {Await, BrowserRouter, Navigate, redirect, Route, Routes} from "react-router-dom"
+import {BrowserRouter, Navigate, redirect, Route, Routes} from "react-router-dom"
 import {PageNotFound} from "../Pages/PageNotFound"
 import React from "react"
 import {GET_PATHS} from "../Constants/GET_PATHS"
 import PageLayout from "../Layouts/PageLayout"
-import {useSelectedLogement} from "../Hooks/useSelectedLogement"
-import {loadEnv} from "vite"
-import {Logement} from "../Pages/Logement"
 
 /**
  * # Router

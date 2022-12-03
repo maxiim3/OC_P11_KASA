@@ -8,6 +8,7 @@ import {useSelectedLogement} from "../Hooks/useSelectedLogement"
 
 export function Home() {
 	const {logements} = useLogements()!
+	useSelectedLogement()
 
 	return (
 		<main className={"main main-home"}>
@@ -18,10 +19,10 @@ export function Home() {
 				</p>
 			</Banner>
 			<ContainerLayout>
-		{/*		<Card
-					key={`card-123`}
-					data={MOCK_FAKE_DATA}
-				/>*/}
+				{/*		<Card
+				 key={`card-123`}
+				 data={MOCK_FAKE_DATA}
+				 />*/}
 				{logements.map(data => {
 					return (
 						<Card
