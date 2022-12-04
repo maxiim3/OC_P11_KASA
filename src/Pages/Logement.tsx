@@ -25,7 +25,10 @@ export function Logement() {
 			/>
 			<ContainerLayout>
 				<header className="header">
-					<div className="header__title">
+					<section
+						tabIndex={0}
+						aria-label={`${logement.title}, situé à ${logement.location}`}
+						className="header__title">
 						<h2>{logement?.title}</h2>
 						<h3>{logement?.location}</h3>
 						<div className="tags">
@@ -36,9 +39,12 @@ export function Logement() {
 								/>
 							))}
 						</div>
-					</div>
+					</section>
 					<aside className="header__aside">
-						<div className="owner">
+						<div
+							aria-label={`Propriétaire : ${logement.host.name}`}
+							tabIndex={0}
+							className="owner">
 							<p>
 								<span className="first">{logement?.host.name.split(" ")[0]}</span>
 								<span className="last">{logement?.host.name.split(" ")[1]}</span>

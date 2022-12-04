@@ -1,17 +1,28 @@
 import React, {MutableRefObject, useRef} from "react"
 import {useCollapse} from "../Hooks/useCollapse"
 import {useRandomKey} from "../Hooks/useRandomKey"
+
 // todo JSDOC
 export function Collapse(props: {title: string; txt: string[]}) {
 	const arrowIconRef = useRef() as MutableRefObject<SVGSVGElement>
 	const contentRef = useRef() as MutableRefObject<HTMLDivElement>
 
-	const {toggleIsOpen} = useCollapse({arrowIconRef, contentRef})
+	const {toggleIsOpen, isOpen} = useCollapse({arrowIconRef, contentRef})
 
 	return (
-		<article className={"collapse"}>
+		<article
+			className={"collapse"}
+			tabIndex={0}
+			aria-label={`${props.title}. Naviguez pour ouvrir ou fermer l'élément`}>
 			<section
 				onClick={toggleIsOpen}
+				onKeyDown={({key}) => key === "Enter" && toggleIsOpen()}
+				aria-label={`Élément ${
+					isOpen
+						? "Ouvert. Sélectionnez pour fermer l'élément"
+						: "Fermé. Sélectionnez pour ouvrir l'élément"
+				}`}
+				tabIndex={0}
 				className="collapse__header">
 				<h2>{props.title}</h2>
 				<svg
@@ -32,7 +43,14 @@ export function Collapse(props: {title: string; txt: string[]}) {
 				ref={contentRef}
 				className="collapse__content">
 				{props.txt.map(t => (
-					<p key={useRandomKey()}>{t}</p>
+					<p
+						aria-hidden={!isOpen}
+						aria-labelledby={props.title}
+						aria-label={t}
+						tabIndex={isOpen ? 0 : -1}
+						key={useRandomKey()}>
+						{t}
+					</p>
 				))}
 			</section>
 		</article>

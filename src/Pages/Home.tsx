@@ -4,11 +4,9 @@ import {Banner} from "../Components/Banner"
 import {ContainerLayout} from "../Layouts/ContainerLayout"
 import {Card} from "../Components/Card"
 import {useLogements} from "../Hooks/useLogements"
-import {useSelectedLogement} from "../Hooks/useSelectedLogement"
 
 export function Home() {
 	const {logements} = useLogements()!
-	useSelectedLogement()
 
 	return (
 		<main className={"main main-home"}>

@@ -28,5 +28,5 @@ export function useCollapse({arrowIconRef, contentRef}: IUseCollapse) {
 
 	const toggleIsOpen = () => setIsOpen(b => !b)
 
-	return {toggleIsOpen}
+	return {toggleIsOpen, isOpen}
 }

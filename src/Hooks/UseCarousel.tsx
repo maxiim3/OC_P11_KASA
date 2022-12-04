@@ -1,5 +1,4 @@
-import {useInitCarousel} from "./UseInitCarousel"
-import {useCallback, useEffect, useMemo, useState} from "react"
+import {useCallback, useMemo, useState} from "react"
 
 export const useCarousel = (props: {length: number}) => {
 	const MAX_INDEX = useMemo(() => props.length - 1, [])

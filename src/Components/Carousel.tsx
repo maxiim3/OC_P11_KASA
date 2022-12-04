@@ -23,9 +23,11 @@ export function Carousel(props: {pictures: string[]; title: string}) {
 
 	return (
 		<section className={"carousel"}>
-			{/*Todo add carousel*/}
 			<svg
 				onClick={decrease}
+				aria-label={"Image Précédente"}
+				onKeyDown={({key}) => key === "Enter" && decrease()}
+				tabIndex={0}
 				className={"carousel__arrow carousel__arrow--left"}
 				width="80"
 				height="100"
@@ -48,6 +50,9 @@ export function Carousel(props: {pictures: string[]; title: string}) {
 			</div>
 			<svg
 				onClick={increase}
+				onKeyDown={({key}) => key === "Enter" && increase()}
+				aria-label={"Image Suivante"}
+				tabIndex={0}
 				className={"carousel__arrow carousel__arrow--right"}
 				width="80"
 				height="100"

@@ -9,7 +9,10 @@ export const Card = (props: {data: ILogement}) => {
 
 	return (
 		<article
+			aria-label={title}
+			tabIndex={0}
 			className="container__card"
+			onKeyDown={({key}) => key === "Enter" && navigate(`/logement/${id}`)}
 			onClick={() => navigate(`/logement/${id}`)}>
 			<div className="bg" />
 			<img
