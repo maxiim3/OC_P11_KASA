@@ -47,6 +47,7 @@ export function Carousel(props: {pictures: string[]; title: string}) {
 					src={pictures[currentIndex]}
 					alt={title}
 				/>
+				<p className={"carousel__container__counter"}>{currentIndex+1}/{pictures.length}</p>
 			</div>
 			<svg
 				onClick={increase}
