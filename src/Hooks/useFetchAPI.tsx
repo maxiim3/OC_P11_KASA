@@ -14,7 +14,7 @@ export function useFetchAPI() {
 		fetch("/logements.json")
 			.then(resp => resp.json())
 			.then(data => setLogements(data))
-	}, [])
+	}, [logements])
 
 	return {logements}
 }

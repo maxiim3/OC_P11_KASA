@@ -15,8 +15,9 @@ export function Logement() {
 	useUnderlineHomeLink()
 	const {logement} = useSelectedLogement()!
 
-	if (!logement) return <Navigate to={GET_PATHS.PAGE_NOT_FOUND.path} />
-
+	if (!logement) {
+		return <Navigate to={GET_PATHS.PAGE_NOT_FOUND.path} />
+	}
 	return (
 		<main className="main main-logement">
 			<Carousel
@@ -27,12 +28,12 @@ export function Logement() {
 				<header className="header">
 					<section
 						tabIndex={0}
-						aria-label={`${logement.title}, situé à ${logement.location}`}
+						aria-label={`${logement?.title}, situé à ${logement?.location}`}
 						className="header__title">
 						<h2>{logement?.title}</h2>
 						<h3>{logement?.location}</h3>
 						<div className="tags">
-							{logement?.tags.map(tag => (
+							{logement?.tags.map((tag: string) => (
 								<Tag
 									key={tag}
 									tag={tag}
@@ -42,7 +43,7 @@ export function Logement() {
 					</section>
 					<aside className="header__aside">
 						<div
-							aria-label={`Propriétaire : ${logement.host.name}`}
+							aria-label={`Propriétaire : ${logement?.host.name}`}
 							tabIndex={0}
 							className="owner">
 							<p>
@@ -55,19 +56,19 @@ export function Logement() {
 								alt={logement?.host.name}
 							/>
 						</div>
-						<Ratings rate={logement.rating} />
+						<Ratings rate={logement?.rating} />
 					</aside>
 				</header>
 				<main className="content">
 					<Collapse
 						key={"description"}
 						title={"Description"}
-						txt={[logement.description]}
+						txt={[logement?.description]}
 					/>
 					<Collapse
 						key={"equipements"}
 						title={"Équipements"}
-						txt={logement.equipments}
+						txt={logement?.equipments}
 					/>
 				</main>
 			</ContainerLayout>

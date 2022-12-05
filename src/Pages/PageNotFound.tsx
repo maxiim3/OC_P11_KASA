@@ -1,5 +1,5 @@
 import React from "react"
-import {NavLink} from "react-router-dom"
+import {Link} from "react-router-dom"
 import {ResponsiveLineBreak} from "../Components/ResponsiveLineBreak"
 import {ContainerLayout} from "../Layouts/ContainerLayout"
 import {useUnderlineHomeLink} from "../Hooks/UseUnderlineHomeLink"
@@ -16,7 +16,7 @@ export function PageNotFound() {
 					</h2>
 				</ContainerLayout>
 				<section className={"link"}>
-					<NavLink to={"/"}>Retourner sur la page d’accueil</NavLink>
+					<Link to={"/"}>Retourner sur la page d’accueil</Link>
 				</section>
 			</main>
 	)

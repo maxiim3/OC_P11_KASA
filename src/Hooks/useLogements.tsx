@@ -9,5 +9,5 @@ import {useContext} from "react"
  * @return {ReturnType<() => {logements: ILogement[]}> | undefined}
  */
 export function useLogements() {
-	return useContext(LogementsContext)
+	return useContext(LogementsContext)!
 }

@@ -4,8 +4,8 @@ import {useRandomKey} from "../Hooks/useRandomKey"
 
 // todo JSDOC
 export function Collapse(props: {title: string; txt: string[]}) {
-	const arrowIconRef = useRef() as MutableRefObject<SVGSVGElement>
 	const contentRef = useRef() as MutableRefObject<HTMLDivElement>
+	const arrowIconRef = useRef() as MutableRefObject<SVGSVGElement>
 
 	const {toggleIsOpen, isOpen} = useCollapse({arrowIconRef, contentRef})
 
